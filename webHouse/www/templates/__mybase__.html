@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block meta %}<!-- block meta  -->{% endblock %}
+    <title>{% block title %} ? {% endblock %} 趋势-房</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
+    <!-- <link href="css/styles.css" rel="stylesheet"> -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/sha1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" 
+                integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
+                integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
+    <script src="/static/js/sticky.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    {% block beforehead %}<!-- before head  -->{% endblock %}
+</head>
+
+<body>
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;" class="uk-sticky uk-navbar-sticky uk-sticky-fixed" style="position: fixed; top: 0px; width: 1977px;">
+        <nav class="uk-visible@m uk-background-secondary uk-light uk-navbar" uk-navbar="">
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="#">LOGO</a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#"><i class="uk-icon-home"></i>首页</a></li>
+                    <li>
+                        <a href="javascript:;" aria-expanded="false" class="">城市</a>
+                        <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left uk-animation-fade uk-animation-enter" style="left: 151.137px; top: 65px; animation-duration: 200ms;">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">南昌</a></li>
+                                <li><a href="#">北京</a></li>
+                                <li><a href="#">上海</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">占位</a></li>
+                </ul>
+            </div>
+
+            <div class="uk-navbar-right">
+                <div class="uk-navbar-item uk-visible@l">
+                    {% if __user__ %}
+                    <a href="#0"><i class="uk-icon-user"></i> {{ __user__.name }}</a>
+                    <div class="uk-dropdown uk-dropdown-navbar">
+                        <ul class="uk-nav uk-nav-navbar">
+                            <li><a href="/signout"><i class="uk-icon-sign-out"></i> 登出</a></li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <button class="uk-button uk-button-text">登录</button>
+                    <a class="uk-button uk-button-primary uk-margin-small-left uk-border-pill" href="">注册</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="uk-sticky-placeholder" style="height: 80px; margin: 0px 0px 40px;"></div>
+    <!-- <div class="uk-container"> -->
+        <!-- content -->
+        {% block content %}
+        {% endblock %}
+        <!-- // content -->
+    <!-- </div> -->
+    <div class="uk-margin-large-top" style="background-color:#eee; border-top:1px solid #ccc;">
+        <div class="uk-container uk-container-center uk-text-center">
+            <div class="uk-panel uk-margin-top uk-margin-bottom">
+                <p>
+                    <a target="_blank" href="http://weibo.com/liaoxuefeng" class="uk-icon-button uk-icon-weibo"></a>
+                    <a target="_blank" href="https://github.com/michaelliao" class="uk-icon-button uk-icon-github"></a>
+                    <a target="_blank" href="http://www.linkedin.com/in/liaoxuefeng" class="uk-icon-button uk-icon-linkedin-square"></a>
+                    <a target="_blank" href="https://twitter.com/liaoxuefeng" class="uk-icon-button uk-icon-twitter"></a>
+                </p>
+                <p>Powered by <a>uikit</a>. Copyright &copy; 2023. [<a href="/manage/" target="_blank">Manage</a>]</p>
+                <a target="_blank" href="http://www.w3.org/TR/html5/"><i class="uk-icon-html5" style="font-size:64px; color: #444;"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
